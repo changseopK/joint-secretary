@@ -263,6 +263,13 @@
   .ev.tone-amber::before { background: var(--amber); }
   .ev.tone-rose::before { background: var(--rose); }
 
+  @media (hover: hover) {
+    .ev:hover {
+      transform: translateY(-2px);
+      border-color: color-mix(in srgb, var(--accent) 30%, var(--line));
+    }
+  }
+
   .date-chip {
     width: 54px;
     padding: 9px 0 8px;
@@ -296,6 +303,8 @@
     color: var(--text-faint);
     letter-spacing: .04em;
   }
+
+  .date-chip .day.is-text { font-size: 16px; letter-spacing: -0.02em; }
 
   .ev-body { min-width: 0; }
 
@@ -645,7 +654,7 @@
       </article>
 
       <article class="card ev tone-blue">
-        <div class="date-chip"><span class="dow">12월</span><span class="day">예정</span><span class="mon">&nbsp;</span></div>
+        <div class="date-chip"><span class="dow">&nbsp;</span><span class="day is-text">12월</span><span class="mon">예정</span></div>
         <div class="ev-body">
           <div class="ev-top">
             <h3 class="ev-title">서도호 전시 예매 준비</h3>
@@ -656,7 +665,7 @@
       </article>
 
       <article class="card ev tone-amber">
-        <div class="date-chip"><span class="dow">12월</span><span class="day">중</span><span class="mon">&nbsp;</span></div>
+        <div class="date-chip"><span class="dow">&nbsp;</span><span class="day is-text">12월</span><span class="mon">중순</span></div>
         <div class="ev-body">
           <div class="ev-top">
             <h3 class="ev-title">가족 저녁 약속</h3>
@@ -666,8 +675,8 @@
         </div>
       </article>
 
-      <article class="card ev tone-rose wide">
-        <div class="date-chip"><span class="dow">연말</span><span class="day">정리</span><span class="mon">&nbsp;</span></div>
+      <article class="card ev tone-rose">
+        <div class="date-chip"><span class="dow">&nbsp;</span><span class="day is-text">연말</span><span class="mon">정리</span></div>
         <div class="ev-body">
           <div class="ev-top">
             <h3 class="ev-title">연말 일정·서류 정리</h3>
@@ -843,7 +852,7 @@
   "use strict";
 
   /* ---- 최근 갱신 시각 (KST, 파일이 배포된 시점을 기준으로 표시) ---- */
-  var BUILD = "2026-11-27T17:20:00+09:00";
+  var BUILD = "2026-11-27T17:22:00+09:00";
   function fmt(iso) {
     var d = new Date(iso);
     if (isNaN(d)) return "—";
