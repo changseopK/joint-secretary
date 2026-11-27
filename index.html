@@ -399,6 +399,11 @@
     padding: 0;
   }
 
+  @media (min-width: 820px) {
+    .todo-list { grid-template-columns: 1fr 1fr; }
+    .todo-list > .empty { grid-column: 1 / -1; }
+  }
+
   .todo {
     display: grid;
     grid-template-columns: auto 1fr;
